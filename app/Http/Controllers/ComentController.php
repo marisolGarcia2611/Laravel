@@ -19,8 +19,7 @@ class ComentController extends Controller
      //return view('welcome',["inicio"=>$inicio]);
        
   // }
-public function prueba()
-{}
+
 
    public function vista()
    {
