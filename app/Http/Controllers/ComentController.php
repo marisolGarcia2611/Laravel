@@ -19,7 +19,8 @@ class ComentController extends Controller
      //return view('welcome',["inicio"=>$inicio]);
        
   // }
-
+public function prueba()
+{}
 
    public function vista()
    {
@@ -33,7 +34,7 @@ class ComentController extends Controller
     {
          $coments=new coment;
          $coments->mensaje=$request->mensaje;
-         $coments->product_id=$request->id;
+         $coments->product_id=$request->product_id;
          $coments->save();
          return 'Nuevo registro establecido';
     }

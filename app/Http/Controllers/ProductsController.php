@@ -30,7 +30,7 @@ class ProductsController extends Controller
         $prod=new products;
         $prod->name=$request->name;
         $prod->precio=$request->precio;
-        $descripcion->descripcion=$request->descripcion;
+        $prod->descripcion=$request->descripcion;
         $prod->save();
         return 'Nuevo registro establecido';
    }
@@ -53,7 +53,6 @@ class ProductsController extends Controller
        $products=DB::table('products')
        ->join('coments','coments.product_id','=','products.id')
        ->where('products.name','=',$request->name)
-       ->and('products.id','=','coments.product_id')
        ->delete();
        return 'Eliminacion de registros exitosa';      
    }
