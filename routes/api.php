@@ -21,20 +21,20 @@ use app\Http\Controllers\ComentController;
  //   return $request->user();
 //});
 /////////Solo vistas 
-Route::get('mostrarComent','ComentController@vista');
-Route::get('mostrarProduct','ProductsController@vista');
+Route::get('mostrarComent/{id?}','ComentController@vista');
+Route::get('mostrarProduct/{id?}','ProductsController@vista');
 
 ////////////introducir más informcaión
-Route::get('insertComent','ComentController@insertar');
-Route::get('insertProduct','ProductsController@insertar');
+Route::post('insertComent','ComentController@insertar');
+Route::post('insertProduct','ProductsController@insertar');
 
 ////////Relaciones entre tablas
 Route::get('matchComentProducts','ComentController@relacion');
 Route::get('matchProductCost','ProductsController@relacionPrecio');
 
 ////////Eliminar registros
-Route::get('deleteComent','ComentController@eliminar');
-Route::get('deleteProduct','ProductsController@eliminar');
+Route::delete('deleteComent','ComentController@eliminar');
+Route::delete('deleteProduct','ProductsController@eliminar');
 
 
 //http://127.0.0.1:8000/api/mostrarProduct

@@ -17,25 +17,32 @@ class ComentController extends Controller
     //{
      // $inicio=coment::all()->toArray();
      //return view('welcome',["inicio"=>$inicio]);
+     //update
+     //delete
+     //post
+     //get
        
   // }
 
 
-   public function vista()
+   public function vista($id=null)
    {
-    $coments=coment::all();
-    return response()->json($coments);   
+   if($id)
+    return response()->json(["coments"=>coment::find($id)],200);   
+    return response()->json(["coments"=>coment::all()],200);   
    }
 
 
 ///funcion que permita añadir más registros.
     public function insertar(Request $request)
     {
-         $coments=new coment;
+         $coments=new coment();
          $coments->mensaje=$request->mensaje;
          $coments->product_id=$request->product_id;
-         $coments->save();
-         return 'Nuevo registro establecido';
+         
+         if($coments->save())
+    return response()->json(["Registro establecido en coments"=>$coments],200);   
+    return response()->json(null,400);  
     }
 
 ////funcion que permita mostrar la relación de a que producto se le esta comentando
@@ -46,7 +53,9 @@ class ComentController extends Controller
         ->where('products.name','=',$request->name)
         ->select('products.name','coments.mensaje','products.precio')
         ->get();
-        return($coments);      
+        if($coments)
+    return response()->json(["pructo comentado"=>$coments],200);   
+    return response()->json(null,400);      
     }
 
     ///eliminar registro de la tabla productos
@@ -56,7 +65,7 @@ class ComentController extends Controller
         ->from('coments')
         ->where('coments.id','=',$request->id)
         ->delete();
-        return 'Eliminacion de registros exitosa';       
+        return response()->json(["eliminacion exitosa"=>$request->id],200);      
     }
 
 

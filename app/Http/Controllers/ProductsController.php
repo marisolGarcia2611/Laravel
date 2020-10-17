@@ -18,21 +18,23 @@ class ProductsController extends Controller
         //
     }
 
-    public function vista()
+    public function vista($id=null)
    {
-    $products=products::all();
-    return response()->json($products);   
+    if($id)
+    return response()->json(["products"=>products::find($id)],200);   
+    return response()->json(["products"=>products::all()],200);  
    }
 
    ///funcion que permita añadir más registros.
    public function insertar(Request $request)
    {
-        $prod=new products;
+        $prod=new products();
         $prod->name=$request->name;
         $prod->precio=$request->precio;
         $prod->descripcion=$request->descripcion;
-        $prod->save();
-        return 'Nuevo registro establecido';
+        if($prod->save())
+        return response()->json(["Registro establecido en products"=>$prod],200);   
+        return response()->json(null,400); 
    }
 
 ////funcion que permita mostrar los cierto rango de precios entre los productos con sus comentarios
@@ -40,11 +42,9 @@ class ProductsController extends Controller
    {
        $products=DB::table('products')
        ->join('coments','coments.product_id','=','products.id')
-       ->where('products.name','=',$request->name)
-       ->and('products.precio')
-       ->between($request->costo1)
-       ->and($request->costo2)
-       ->select('products.name','products.precio','coments.mensaje');
+       ->whereBetween('products.precio', [$request->costo1, $request->costo2])
+       ->select('products.name','products.precio','coments.mensaje')
+       ->get();
        return($products);      
    }
 ///eliminar registro de la tabla productos
@@ -54,7 +54,7 @@ class ProductsController extends Controller
        ->join('coments','coments.product_id','=','products.id')
        ->where('products.name','=',$request->name)
        ->delete();
-       return 'Eliminacion de registros exitosa';      
+       return response()->json(["eliminacion exitosa del registro"=>$request->name],200);           
    }
 
 
