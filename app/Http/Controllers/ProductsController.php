@@ -53,7 +53,7 @@ class ProductsController extends Controller
        return response()->json(["eliminacion exitosa del registro"=>$request->name],200);           
    }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////
     /**
      * Show the form for creating a new resource.
      *

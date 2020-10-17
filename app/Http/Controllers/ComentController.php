@@ -23,7 +23,7 @@ class ComentController extends Controller
      //get
        
   // }
-
+///////////////////////////
 ///Mostrar todo el contenido de esta tabla
    public function vista($id=null)
    {

@@ -36,7 +36,7 @@ Route::get('matchProductCost','ProductsController@relacionPrecio');
 ////////Eliminar registros
 Route::delete('deleteComent','ComentController@eliminar');
 Route::delete('deleteProduct','ProductsController@eliminar');
-
+/////////////////////////////
 
 //get--http://127.0.0.1:8000/api/mostrarProduct
 //get--http://127.0.0.1:8000/api/mostrarComent
