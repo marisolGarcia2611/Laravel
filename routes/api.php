@@ -37,12 +37,12 @@ Route::delete('deleteComent','ComentController@eliminar');
 Route::delete('deleteProduct','ProductsController@eliminar');
 
 
-//http://127.0.0.1:8000/api/mostrarProduct
-//http://127.0.0.1:8000/api/mostrarComent
-//http://127.0.0.1:8000/api/insertComent
-//http://127.0.0.1:8000/api/insertProduct
-//http://127.0.0.1:8000/api/matchComentProducts
-//http://127.0.0.1:8000/api/matchProductCost
-//http://127.0.0.1:8000/api/deleteComent
-//http://127.0.0.1:8000/api/deleteProduct
+//get--http://127.0.0.1:8000/api/mostrarProduct
+//get--http://127.0.0.1:8000/api/mostrarComent
+//post--http://127.0.0.1:8000/api/insertComent
+//post--http://127.0.0.1:8000/api/insertProduct
+//post--http://127.0.0.1:8000/api/matchComentProducts
+//post--http://127.0.0.1:8000/api/matchProductCost
+//post--http://127.0.0.1:8000/api/deleteComent
+//post--http://127.0.0.1:8000/api/deleteProduct
 
