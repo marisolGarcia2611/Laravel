@@ -20,7 +20,8 @@ use app\Http\Controllers\ComentController;
 //(Route::middleware('auth:api')->get('/user', function (Request $request) {
  //   return $request->user();
 //});
-/////////Solo vistas 
+
+/////////Solo vistas de las tablas
 Route::get('mostrarComent/{id?}','ComentController@vista');
 Route::get('mostrarProduct/{id?}','ProductsController@vista');
 

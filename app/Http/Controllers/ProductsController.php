@@ -13,11 +13,7 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
+   ///Mostrar todo el contenido de esta tabla
     public function vista($id=null)
    {
     if($id)

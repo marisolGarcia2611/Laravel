@@ -24,7 +24,7 @@ class ComentController extends Controller
        
   // }
 
-
+///Mostrar todo el contenido de esta tabla
    public function vista($id=null)
    {
    if($id)
@@ -45,7 +45,7 @@ class ComentController extends Controller
     return response()->json(null,400);  
     }
 
-////funcion que permita mostrar la relación de a que producto se le esta comentando
+////funcion que permita mostrar la relación del producto se le esta comentando
     public function relacion(Request $request)
     {
         $coments=DB::table('coments')
@@ -58,7 +58,7 @@ class ComentController extends Controller
     return response()->json(null,400);      
     }
 
-    ///eliminar registro de la tabla productos
+    ///eliminar registro de la tabla productos 
     public function eliminar(Request $request)
     {
         $coments=DB::table('coments')
