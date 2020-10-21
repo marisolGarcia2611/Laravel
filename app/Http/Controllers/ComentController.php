@@ -67,7 +67,17 @@ class ComentController extends Controller
         ->delete();
         return response()->json(["eliminacion exitosa"=>$request->id],200);      
     }
-
+/// Actualizar el producto de la tabla products
+  
+public function actualizar(Request $request,$id)
+{    $coments=coment::find ($id);  
+    $coments->mensaje=$request->mensaje;
+    $coments->product_id=$request->product_id;
+    
+    if($coments->save())
+     return response()->json(["Registro actualizado"=>$coments],200);   
+     return response()->json(null,400); 
+}
 
 
 

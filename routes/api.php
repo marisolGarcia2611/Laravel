@@ -38,6 +38,10 @@ Route::delete('deleteComent','ComentController@eliminar');
 Route::delete('deleteProduct','ProductsController@eliminar');
 /////////////////////////////
 
+///////Actualizar tabla productos
+Route::put('updateProduct/{id}','ProductsController@actualizar');
+Route::put('updateComent/{id}','ComentController@actualizar');
+
 //get--http://127.0.0.1:8000/api/mostrarProduct
 //get--http://127.0.0.1:8000/api/mostrarComent
 //post--http://127.0.0.1:8000/api/insertComent
@@ -46,4 +50,6 @@ Route::delete('deleteProduct','ProductsController@eliminar');
 //post--http://127.0.0.1:8000/api/matchProductCost
 //post--http://127.0.0.1:8000/api/deleteComent
 //post--http://127.0.0.1:8000/api/deleteProduct
+//put---http://127.0.0.1:8000/api/updateProduct/id
+//put---http://127.0.0.1:8000/api/updateComent/id
 

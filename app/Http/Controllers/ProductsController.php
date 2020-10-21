@@ -53,7 +53,20 @@ class ProductsController extends Controller
        return response()->json(["eliminacion exitosa del registro"=>$request->name],200);           
    }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+/// Actualizar el producto de la tabla products
+  
+public function actualizar(Request $request,$id)
+{    $prod=products::find ($id);  
+     $prod->name=$request->name;
+     $prod->precio=$request->precio;
+     $prod->descripcion=$request->descripcion;
+     
+     if($prod->save())
+     return response()->json(["Registro actualizado"=>$prod],200);   
+     return response()->json(null,400); 
+}
+
+
     /**
      * Show the form for creating a new resource.
      *
